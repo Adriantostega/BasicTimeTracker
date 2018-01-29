@@ -1,0 +1,81 @@
+﻿<Window x:Class="BasicTimeTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:converters="clr-namespace:BasicTimeTracker.Converters"
+        mc:Ignorable="d"
+        Title="Time Tracker" 
+        Height="110" 
+        MinHeight="110" 
+        MaxHeight="110" 
+        Width="380" 
+        MaxWidth="380" 
+        MinWidth="380"       
+        ResizeMode="NoResize"
+        >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+            <converters:InvertableBooleanToVisibilityConverter x:Key="InvertableBooleanToVisibilityConverter"></converters:InvertableBooleanToVisibilityConverter>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top" Visibility="{Binding IsCurrentlyTracking, Converter={StaticResource InvertableBooleanToVisibilityConverter}, ConverterParameter=Inverted}">
+            <Button 
+                DockPanel.Dock="Left" 
+                Margin="10,5"  
+                Height="55" 
+                Command="{Binding StartTrackingCommand}"
+                CommandParameter="{Binding ElementName=ActivityTrackingTextBox, Path=Text}"
+                Content="Start Tracking"/>
+
+            <TextBox 
+                DockPanel.Dock="Right" 
+                Margin="0,10,10,10" 
+                Width="Auto" 
+                HorizontalAlignment="Stretch" 
+                FontFamily="Calibri" 
+                FontSize="20" 
+                Height="30" 
+                Name="ActivityTrackingTextBox" 
+                GotFocus="ActivityTrackingTextBox_OnGotFocus" 
+                LostFocus="ActivityTrackingTextBox_OnLostFocus"/>
+        </DockPanel>
+        <DockPanel Visibility="{Binding IsCurrentlyTracking, Converter={StaticResource BooleanToVisibility}}" DockPanel.Dock="Bottom">
+            <Button 
+                DockPanel.Dock="Left" 
+                Margin="10,5" 
+                Height="55"
+                Command="{Binding StopTrackingCommand}"
+                CommandParameter="{Binding CurrenTrackingRecordDto}"
+                Content="Stop Tracking"/>
+            <DockPanel>
+            <TextBlock 
+                DockPanel.Dock="Top" 
+                Margin="0,12,10,5" 
+                Width="Auto" 
+                HorizontalAlignment="Stretch" 
+                FontFamily="Calibri" 
+                FontSize="20" 
+                Height="23" 
+                Text="{Binding CurrentActivityWorking, StringFormat='Working On: {0}'}"
+                Name="ActivityTrackingTextBlock"
+                />
+                <TextBlock 
+                DockPanel.Dock="Bottom" 
+                Margin="0,0,10,10" 
+                Width="Auto" 
+                HorizontalAlignment="Stretch" 
+                FontFamily="Calibri" 
+                FontSize="20" 
+                Height="25" 
+                Text="{Binding StartDate, StringFormat='Since: {0}'}"                
+                Name="ActivityStartDateTextBlock"
+                />
+            </DockPanel>
+        </DockPanel>
+    </DockPanel>
+</Window>
