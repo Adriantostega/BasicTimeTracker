@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicTimeTracker", "BasicTimeTracker\BasicTimeTracker.csproj", "{547C1E52-DA05-4D2E-9D1B-2CB73B3C0222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicTimeTrackerTest", "BasicTimeTrackerTest\BasicTimeTrackerTest.csproj", "{EC6D545A-4D55-43E2-8046-B06E1832A355}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +23,19 @@ Global
 		{547C1E52-DA05-4D2E-9D1B-2CB73B3C0222}.Release|Any CPU.Build.0 = Release|Any CPU
 		{547C1E52-DA05-4D2E-9D1B-2CB73B3C0222}.Release|x86.ActiveCfg = Release|x86
 		{547C1E52-DA05-4D2E-9D1B-2CB73B3C0222}.Release|x86.Build.0 = Release|x86
+		{EC6D545A-4D55-43E2-8046-B06E1832A355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC6D545A-4D55-43E2-8046-B06E1832A355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC6D545A-4D55-43E2-8046-B06E1832A355}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EC6D545A-4D55-43E2-8046-B06E1832A355}.Debug|x86.Build.0 = Debug|Any CPU
+		{EC6D545A-4D55-43E2-8046-B06E1832A355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC6D545A-4D55-43E2-8046-B06E1832A355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC6D545A-4D55-43E2-8046-B06E1832A355}.Release|x86.ActiveCfg = Release|Any CPU
+		{EC6D545A-4D55-43E2-8046-B06E1832A355}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ACA15AAB-BAC7-4DCD-834A-5A973426F231}
 	EndGlobalSection
 EndGlobal
